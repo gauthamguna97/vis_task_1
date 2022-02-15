@@ -1,0 +1,8 @@
+https://www.w3schools.com/howto/howto_js_topnav.asp
+
+
+1. Combine Bar and Histogram
+
+2. Adding Attributes dropdown
+
+3. Adding Radio Button for scatter plot

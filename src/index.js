@@ -1,17 +1,137 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './js/App';
+import Home from './js/Home';
+import {
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
+import BarGraph from './js/BarGraph';
+import Histogram from './js/Histogram';
+import ScatterPlot from './js/ScatterPlot';
+
+const nums = [
+'Age',
+'Overall',
+'Potential',
+'Special',
+'International Reputation',
+'Weak Foot',
+'Skill Moves',
+'Jersey Number',
+'LS',
+'ST',
+'RS',
+'LW',
+'LF',
+'CF',
+'RF',
+'RW',
+'LAM',
+'CAM',
+'RAM',
+'LM',
+'LCM',
+'CM',
+'RCM',
+'RM',
+'LWB',
+'LDM',
+'CDM',
+'RDM',
+'RWB',
+'LB',
+'LCB',
+'CB',
+'RCB',
+'RB',
+'Crossing',
+'Finishing',
+'HeadingAccuracy',
+'ShortPassing',
+'Volleys',
+'Dribbling',
+'Curve',
+'FKAccuracy',
+'LongPassing',
+'BallControl',
+'Acceleration',
+'SprintSpeed',
+'Agility',
+'Reactions',
+'Balance',
+'ShotPower',
+'Jumping',
+'Stamina',
+'Strength',
+'LongShots',
+'Aggression',
+'Interceptions',
+'Positioning',
+'Vision',
+'Penalties',
+'Composure',
+'Marking',
+'StandingTackle',
+'SlidingTackle',
+'GKDiving',
+'GKHandling',
+'GKKicking',
+'GKPositioning',
+'GKReflexes']
+
+const cats = [
+ 'Nationality',
+ 'Flag',
+ 'Club',
+ 'Value',
+ 'Wage',
+ 'Preferred Foot',
+ 'Work Rate',
+ 'Body Type',
+ 'Real Face',
+ 'Position',
+ 'Joined',
+ 'Loaned From',
+ 'Contract Valid Until',
+ 'Height',
+ 'Weight',
+ 'Release Clause'
+]
+
+var margin = {top: 100, right: 20, bottom: 150, left: 150},
+width = window.innerWidth - margin.left - margin.right-300,
+height = window.innerHeight - margin.top - margin.bottom-150;
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <BrowserRouter>
+      <Routes>
+          <Route
+            path="/"
+            element={<App cats={cats} nums={nums} />}
+          >
+            <Route
+              path="/"
+              element={<Home cats={cats} nums={nums} margin={margin} width={width} height={height} />}
+            ></Route>
+            <Route
+              path="/bar"
+              element={<BarGraph cats={cats} nums={nums} margin={margin} width={width} height={height} />}
+            />
+            <Route
+              path="/histogram"
+              element={<Histogram cats={cats} nums={nums} margin={margin} width={width} height={height} />}
+            />
+            <Route
+              path="/scatter"
+              element={<ScatterPlot cats={cats} nums={nums} margin={margin} width={width} height={height} />}
+            />
+          </Route>
+      </Routes>,
+    </BrowserRouter>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
