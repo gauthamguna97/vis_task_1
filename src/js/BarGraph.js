@@ -69,6 +69,9 @@ const BarGraph = (props) => {
     
             console.log(data);
 
+            data = data.filter(d => d.name != '' && d.value > 3)
+
+
             var x = d3.scaleLinear()
             .domain([0, d3.max(data, function(d) { return d.value; })])
             .range([ 0, width]);
@@ -173,7 +176,7 @@ const BarGraph = (props) => {
                   .attr("dy", "1em")
                   .style("text-anchor", "middle")
                   .style("font-weight", "bold")
-                  .text(value);
+                  .text(value).style("color", color);
 
         } else {
             d3.select("svg").remove();
@@ -205,6 +208,9 @@ const BarGraph = (props) => {
                 var data = Array.from(map, ([name, value]) => ({ name, value }));
     
                 data.sort((a, b) => a.name-b.name)
+
+                data = data.filter(d => d.name != '' && d.value > 3)
+
     
                 // X axis
                 var x = d3.scaleBand()
@@ -308,7 +314,9 @@ const BarGraph = (props) => {
                 .style("text-anchor", "middle")
                 .style("font-weight", "bold")
                 .style("font-size", "20px")
-                .text(value);
+                .text(value)
+                .style("color", color)
+                ;
     
                 //ylabel
                 svg.append("text")

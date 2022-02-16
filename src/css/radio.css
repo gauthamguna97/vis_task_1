@@ -44,10 +44,10 @@ input:hover + label {
   border-color: #213140;
 }
 input:checked + label {
-  background-color: #4B9DEA;
+  background-color: #f3037d;
   color: #FFF;
   box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
-  border-color: #4B9DEA;
+  border-color: #f3037d;
   z-index: 1;
 }
 

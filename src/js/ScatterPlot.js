@@ -85,6 +85,7 @@ const ScatterPlot = (props) => {
       .call(d3.axisLeft(y));
     
 
+      data = data.filter(d => !(d.value1 && d.value2))
 
 
     // Add dots
@@ -93,11 +94,11 @@ const ScatterPlot = (props) => {
     .data(data)
     .enter()
     .append("circle")
-      .attr("cx", function (d) { return x(d[value1])} )
-      .attr("cy", function (d) { return y(d[value2])} )
-      .attr("r", d => 5)
+      .attr("cx", function (d) { return x(d[value1]) + 2* Math.random()} )
+      .attr("cy", function (d) { return y(d[value2]) + 2* Math.random()} )
+      .attr("r", d => 3)
       .style("fill", "#0a0b99")
-      .style("opacity", 0.5)
+      .style("opacity", 0.3)
 
     })
 
